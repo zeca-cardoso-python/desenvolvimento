@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayne Industries - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logotipo.jpg') }}" alt="Wayne Industries">
+        </div>
+        <br>
+        <h1>Bem-vindo às Indústrias Wayne</h1>
+    </header>
+
+    <div class="container">
+        <br>
+
+        <h2>SISTEMA INTERNO DE GESTÃO E SEGURANÇA</h2>
+
+    </div>
+    <br>
+    <br>
+
+
+    <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+            <h2 style="color: #FFD700;">Login</h2>
+            <br>
+            <input type="text" id="username" placeholder="Usuário">
+            <input type="password" id="password" placeholder="Senha">
+            <br>
+            <br>
+            <button onclick="login()">Entrar</button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+    <h4>Somente funcionários autorizados podem acessar o sistema.</h4>
+    <h4>IT Security | Wayne Industries</h4>
+
+    <footer>
+        <p>&copy; 2025 Wayne Industries | By Jeferson Cardoso - Desenvolvedor FullStack</p>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>

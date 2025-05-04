@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos - Wayne Industries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logotipo.jpg') }}" alt="Logo Wayne Industries">
+        </div>
+        <br>
+        <h1>Recursos - Wayne Industries</h1>
+    </header>
+    <div class="container-recursos">
+        <div class="form-container">
+            <h2>Adicionar Recursos</h2>
+            <form id="form-adicionar-recurso">
+                <label for="tipo">Tipo:</label>
+                <select id="tipo" name="tipo">
+                    <option value="veiculo">Veículo</option>
+                    <option value="arma">Arma</option>
+                </select>
+                <br>
+                <label for="placa">Placa/Série:</label>
+                <input type="text" id="placa" name="placa">
+                <br>
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca">
+                <br>
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo">
+                <br>
+                <label for="ano">Ano:</label>
+                <input type="number" id="ano" name="ano">
+                <br>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade">
+                <br>
+                <label for="valor">Valor:</label>
+                <input type="text" id="valor" name="valor" oninput="formatarMoeda(this)">
+                <br>
+                <label for="local_operacao">Local de Operação:</label>
+                <input type="text" id="local_operacao" name="local_operacao">
+                <br>
+                <br>
+                <button class="button" type="submit">Adicionar Recurso</button>
+            </form>
+            <button class="button botao-sair" onclick="sairRecursos()">Sair</button>
+        </div>
+        <div class="divisor"></div>
+        <div class="list-container">
+            <h2>Lista de Recursos | Veículos - Armas</h2>
+            <br>
+            <button class="button" onclick="carregarRecursos()">Listar Recursos</button>
+            <div class="lista">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo</th>
+                            <th>Placa/Série</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Ano</th>
+                            <th>Quantidade</th>
+                            <th>Valor</th>
+                            <th>Local de Operação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-recursos">
+                        <!-- Aqui será preenchida a lista de recursos -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Wayne Industries | By Jeferson Cardoso - Desenvolvedor FullStack</p>
+    </footer>
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>

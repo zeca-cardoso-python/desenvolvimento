@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Operacional - Wayne Industries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logotipo.jpg') }}" alt="Logo Wayne Industries">
+        </div>
+        <br>
+        <h1>Central Operacional - Wayne Industries</h1>
+    </header>
+    <div class="container">
+        <h2>Bem-vindo a Central Operacional!</h2>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <p>Cadastro de usuários | Gestão de Recursos | Dashboard</p>
+
+        <br>
+        <br>
+
+        <button class="button" onclick="usuarios()">Cadastro de Usuários</button>
+        <button class="button" onclick="recursos()">Gestão de Recursos</button>
+        <button class="button" onclick="dashboard()">Dashboard</button>
+        <button class="button" onclick="logout()">Sair</button>
+    </div>
+    <footer>
+        <p>&copy; 2025 Wayne Industries | By Jeferson Cardoso - Desenvolvedor FullStack</p>
+    </footer>
+
+
+    <script>
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "index.html";
+        }
+    </script>
+
+    <script src="static/js/script.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Usuários</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<!-- Estilo exclusivo para a lista de usuários -->
+<style>
+    #listaUsuarios {
+        color: white;
+        text-align: left;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logotipo.jpg') }}" alt="Wayne Industries">
+        </div>
+        <br>
+        <h1>Gerenciamento de Usuários</h1>
+    </header>
+    <br>
+    <br>
+    <br>
+    <h2>Plataforma de cadastro de usuários</h2>
+
+    <div onload="carregarUsuarios()">
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+
+    <!-- Formulário para adicionar usuário -->
+    <form id="form-adicionar-usuario" onsubmit="adicionarUsuario(event)">
+        <input type="text" id="novoUsuario" placeholder="Novo Usuário" required>
+        <input type="password" id="novaSenha" placeholder="Senha" required>
+        <select id="hierarquia" required>
+            <option value="Administrador">Administrador</option>
+            <option value="Gerente">Gerente</option>
+            <option value="Colaborador">Colaborador</option>
+        </select>
+        <button type="submit">Adicionar</button>
+        <button type="button" onclick="carregarUsuarios()">Lista de Usuários</button>
+        <button class="button" onclick="logout()">Sair</button>
+    </form>
+
+    <!-- Lista de usuários -->
+    <ul id="listaUsuarios">
+        <!-- Aqui serão exibidos os usuários -->
+    </ul>
+
+    <!-- Botões de ação para cada usuário -->
+    <div id="acoesUsuarios">
+        <!-- Aqui serão exibidos os botões de ação para cada usuário -->
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+
+    <!-- verifcar se o usuário é o admin -->
+    <script>
+        const token = localStorage.getItem("token");
+        if (token) {
+            const decoded = JSON.parse(atob(token.split('.')[1]));
+            if (decoded.hierarquia !== "admin") {
+                alert("Você não tem permissão para acessar esse setor.");
+                window.location.href = "/central-operacional";
+            }
+        } else {
+            alert("Faça login primeiro.");
+            window.location.href = "/";
+        }
+    </script>
+
+
+    <!-- Arquivo JavaScript -->
+    <script src="static/js/script.js"></script>
+
+
+
+    <footer>
+        <p>&copy; 2025 Wayne Industries | By Jeferson Cardoso - Desenvolvedor FullStack</p>
+    </footer>
+
+
+
+
+</body>
+
+</html>
